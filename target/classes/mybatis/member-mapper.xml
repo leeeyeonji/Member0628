@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MemberDAO">
+
+<insert id="insert">
+insert into member values (#{id},#{pw},#{name},#{image},#{phone},#{email},#{zipcode},#{addr1},#{addr2})
+</insert>
+
+<select id="idCheck" resultType="int">
+select count(*) from member where id=#{id}
+</select>
+
+<select id="loginCheck" resultType="int">
+select count(*) from member where id=#{id} and pw=#{pw}
+</select>
+
+<select id="myPage" resultType="kh.spring.dto.MemberDTO">
+select * from member where id=#{id}
+</select>
+
+<update id="update">
+update member set image=#{modifiedImg} where id=#{id}
+</update>
+
+<update id="modify">
+update member set pw=#{pw}, name=#{name}, phone=#{phone}, email=#{email}, zipcode=#{zipcode}, addr1=#{addr1}, addr2=#{addr2} where id=#{id}
+</update>
+
+</mapper>
+
