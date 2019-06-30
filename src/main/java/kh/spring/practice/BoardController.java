@@ -104,6 +104,9 @@ public class BoardController {
 				request.setAttribute("list", list);
 				List<String> navi = dao.getNavi(nowPage);
 				int size = navi.size();
+				if (size==0) {
+					size=1;
+				}
 				request.setAttribute("now", page);
 				request.setAttribute("navi", navi);
 				request.setAttribute("size", size);
@@ -131,8 +134,8 @@ public class BoardController {
 	
 	@ResponseBody
 	@RequestMapping("modifyBoardImgProc")
-	public String modifyBoardImgProc(int seq, MultipartHttpServletRequest request) {
-		MultipartFile image = request.getFile("image");
+	public String modifyBoardImgProc(MultipartHttpServletRequest request) {
+		MultipartFile image = request.getFile("fileImg");
 		File dir = new File("/resources/modify/");
 		if(!dir.exists()) { // 폴더가 있는지 확인.
 			System.out.println("폴더생성");

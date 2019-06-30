@@ -18,12 +18,12 @@ public class PerfCheckAdvice {
 
 	@Autowired
 	public HttpSession session;
-	@Pointcut("execution(* kh.spring.practice.HomeController.myPage*(..))")
-	public void mypageAll() {};
-	@Pointcut("execution(* kh.spring.practice.HomeController.modify*(..))")
-	public void modifyAll() {};
+	@Pointcut("execution(* kh.spring.practice.HomeController.*(..))")
+	public void homeAll() {};
+//	@Pointcut("execution(* kh.spring.practice.HomeController.modify*(..))")
+//	public void modifyAll() {};
 	
-	@Around("mypageAll() || modifyAll()")
+	@Around("homeAll()")
 	public Object perfCheck(ProceedingJoinPoint pjp) {
 		//before
 		long startTime = System.currentTimeMillis();

@@ -49,6 +49,10 @@ div {
 	cursor: pointer;
 }
 
+.date{
+	font-size:13px;
+}
+
 .contents {
 	background-color: #f9ffe0;
 	color: #5378b2;

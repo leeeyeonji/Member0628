@@ -161,7 +161,6 @@ public class HomeController {
 	
 	@RequestMapping("modifyProc")
 	public String modifyProc(MemberDTO dto, HttpServletRequest request) {
-		System.out.println(dto.getName());
 		int result = dao.modify(dto, (String)session.getAttribute("loginID"));
 		request.setAttribute("result", result);
 		MemberDTO newDTO = dao.myPage((String)session.getAttribute("loginID"));
