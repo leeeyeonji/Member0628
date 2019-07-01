@@ -18,7 +18,7 @@ public class PerfCheckAdvice {
 
 	@Autowired
 	public HttpSession session;
-	@Pointcut("execution(* kh.spring.practice.HomeController.*(..))")
+	@Pointcut("execution(* kh.spring.practice.HomeController.m*(..))")
 	public void homeAll() {};
 //	@Pointcut("execution(* kh.spring.practice.HomeController.modify*(..))")
 //	public void modifyAll() {};
