@@ -140,7 +140,7 @@
 			<div class="row contents">
 			<div class="col-12">
 					<input type="file" id=fileImg>
-					<button id=imgBtn class=btn>등록</button>
+					<button type=button id=imgBtn class=btn>등록</button>
 				</div>
 				<div id=contents contenteditable>${dto.contents }</div>
 				<input type=hidden name=contents id=sendContents>
@@ -154,6 +154,23 @@
 	</div>
 
 	<script>
+		$("#imgBtn").on("click",function(){
+			var formdata = new FormData();
+			formdata.append("fileImg",$("#fileImg")[0].files[0]);	
+			
+			$.ajax({
+				url:"modifyBoardImgProc",
+				type:"post",
+				data:formdata,
+				processData:false,
+				cache:false,
+				contentType:false	
+			}).done(function(resp){
+				console.log(resp);
+				$("#contents").append("<img src=/image/modify/"+resp+" width=150px>");
+			})
+		})
+		
 		$("#modify").on(
 				"click",
 				function() {

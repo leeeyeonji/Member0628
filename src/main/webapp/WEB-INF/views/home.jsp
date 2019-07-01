@@ -76,7 +76,11 @@ td {
 			<div>
 				<table>
 					<tr>
-						<th colspan="3">♡ <%=session.getAttribute("loginID")%> 님,
+					<th>
+					<img src="/image${loginDTO.image }" width=100px>
+					</tr>
+					<tr>
+						<th colspan="3">♡ ${loginID } 님,
 							환영합니다 ♡
 					</tr>
 					<tr>

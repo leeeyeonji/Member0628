@@ -82,6 +82,10 @@
 	color: #e5edf9;
 }
 
+#imgbtn:hover{
+	border: 1px solid #e5edf9;
+}
+
 #footer{
 	text-align: center;
 }

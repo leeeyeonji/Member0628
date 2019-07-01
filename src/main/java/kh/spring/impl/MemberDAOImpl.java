@@ -82,7 +82,6 @@ public class MemberDAOImpl implements MemberDAO {
 	
 	public int modify(MemberDTO dto, String id) {
 		String sql = "update member set pw=?, name=?, phone=?, email=?, zipcode=?, addr1=?, addr2=? where id=?";
-		System.out.println( dto.getPw()+ dto.getName()+ dto.getPhone()+ dto.getEmail()+ dto.getZipcode()+ dto.getAddr1()+ dto.getAddr2()+ id);
 		return template.update(sql, dto.getPw(), dto.getName(), dto.getPhone(), dto.getEmail(), dto.getZipcode(), dto.getAddr1(), dto.getAddr2(), id);	
 		//return sst.update("MemberDAO.modify"); 
 	}
